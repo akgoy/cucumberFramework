@@ -21,7 +21,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 
 public class Steps extends BaseTest {
-	WebDriver driver;
+	//WebDriver driver;
 	PageFactory pageFactory = new PageFactory();
 	BasePage page;
 	
@@ -80,8 +80,8 @@ public class Steps extends BaseTest {
 	public void teardown(Scenario scenario) {
 		byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 		scenario.attach(screenshot, "png", scenario.getName());
-		//driver.close();
-		//driver=null;
+		driver.close();
+		driver=null;
 	}
 
 
